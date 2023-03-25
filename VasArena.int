@@ -1,0 +1,57 @@
+[Public]
+Object=(Name=VasArena.VasArenaGameInfo,Class=Class,MetaClass=Engine.GameInfo)
+Preferences=(Caption="Vas Arena Match",Parent="Game Types",Class=VasArena.VasArenaGameInfo,Immediate=True)
+Object=(Name=Arena.ARMaplist,Class=Class,MetaClass=Arena.ARMaplist,Description="Default Maps")
+Object=(Name=VasArena.VasArenaMutator,Class=Class,MetaClass=Engine.Mutator,Description="{VasArena} ServerSave")
+Object=(Name=vasarenaGVEWeapons.VasArenaGVEWeaponsMutator,Class=Class,MetaClass=Engine.Mutator,Description="VasArenaGVEWeapons v1.0")
+
+[ArenaGameInfo]
+GetReadyMessage=Its Your Turn to fight! Get Ready!
+FightMessage=THE BATTLE BEGINS!!
+SuicideDeathMessage=" suicided!!"
+CrushDeathMessage=" got crushed!!"
+FellDeathMessage=" fell to death!!"
+DrownDeathMessage=%o drowned!!
+ThrownDeathMessage=%o died by a thrown weapon from %k
+KillDeathMessage=%o was killed by %k
+BurnedDeathMessage=%o was burned by %k
+HeadDeathMessage="%o has given up a head to %k!!"
+GenericDeathMessage=" died!!"
+GameName=Arena Match
+
+[ArenaScoreboard]
+ChampionString=Arena Champion
+CurrentMatch=Current Match
+QueueText=Position
+VsString=" vs. "
+InMatchMsg="PLEASE WAIT UNTIL MATCH IS FINISHED"
+ServerText=" Server"
+XOnXText=" on "
+ChampionsText=Champions
+ChallengersText=Challengers
+MatchText="Match "
+FragsText=Victories
+DeathsText=Losses
+
+[ArenaMenuRulesBase]
+FragText=Arena Matches
+FragHelp=The game will end after this number of matches have been played.
+TimeText=Time Limit
+TimeHelp=The game will end if after this many minutes. A value of 0 sets no time limit.
+MaxArenaText=Arena Team Size
+MaxArenaHelp="Maximum size of Arena Teams.  Set to 1 for a 1-on-1 match."
+MatchWaitText=Time Between Matches
+MatchWaitHelp=Amount of time to wait between each match.
+MaxPlayersText=Max Connections
+MaxPlayersHelp=Maximum number of human players allowed to connect to the game.
+MaxSpectatorsText=Max Spectators
+MaxSpectatorsHelp=Maximum number of spectators allowed to connect to the game.
+WeaponsText=Weapons Stay
+WeaponsHelp=If checked, weapons will stay at their pickup location after being picked up, instead of respawning.
+
+[MatchResultMessage]
+MatchWinMessage=" has overtaken "
+MatchRetainMessage=" has beaten down "
+ChampionsStayMessage="The Champions have reigned over the Challengers."
+ChallengersOverthrowMessage=The Challengers have overthrown the Champions.
+

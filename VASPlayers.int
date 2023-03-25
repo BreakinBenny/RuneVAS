@@ -1,0 +1,4 @@
+[Public]
+Object=(Name=golem.playergolem,Class=Class,MetaClass=RuneI.RunePlayer,Description="Golem")
+Object=(Name=shroomman.playershroomman,Class=Class,MetaClass=RuneI.RunePlayer,Description="Shroomman")
+Object=(Name=treant.playertreant,Class=Class,MetaClass=RuneI.RunePlayer,Description="Treant")
