@@ -13,4 +13,9 @@ function PostBeginPlay()
 	bPoweredUp = True;
 }
 
-function PowerupEnded(){}
+function PowerupEnded()
+{}
+
+defaultproperties
+{
+}

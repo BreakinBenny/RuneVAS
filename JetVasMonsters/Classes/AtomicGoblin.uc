@@ -1,0 +1,50 @@
+//=============================================================================
+// AtomicGoblin.
+//=============================================================================
+class AtomicGoblin expands Goblin;
+
+defaultproperties
+{
+	RollSound=Sound'fuckyou.Package0.fuckyou'
+	GoblinLimb=LIMB_RANDOMWARPAINT
+	GoblinTorso=TORSO_RANDOMWARPAINT
+	goblinhead=HEAD_RANDOMWARPAINT
+	Orders=Roaming
+	FightOrFlight=1.000000
+	FightOrDefend=1.000000
+	LungeRange=350.000000
+	bDodgeAfterAttack=True
+	BreathSound=Sound'fuckyou.Package0.fuckyou'
+	FearSound=Sound'fuckyou.Package0.fuckyou'
+	bIsBoss=True
+	StartWeapon=Class'RuneI.DwarfBattleHammer'
+	StartShield=None
+	MeleeRange=60.000000
+	GroundSpeed=500.000000
+	WaterSpeed=400.000000
+	JumpZ=900.000000
+	MaxStepHeight=100.000000
+	WalkingSpeed=315.000000
+	Health=1000
+	MaxHealth=1000
+	BodyPartHealth(1)=9999
+	BodyPartHealth(3)=9999
+	BodyPartHealth(5)=9999
+	GibCount=35
+	GibClass=Class'JetVasMonsters.DebrisBone'
+	PainDelay=0.150000
+	Skill=1.000000
+	HitSound1=Sound'fuckyou.Package0.fuckyou'
+	HitSound2=Sound'fuckyou.Package0.fuckyou'
+	HitSound3=Sound'fuckyou.Package0.fuckyou'
+	Die=Sound'fuckyou.Package0.fuckyou'
+	Die2=Sound'fuckyou.Package0.fuckyou'
+	Die3=Sound'fuckyou.Package0.fuckyou'
+	DeathHeight=25.000000
+	DrawScale=3.000000
+	ColorAdjust=(X=200.000000,Y=100.000000)
+	DesiredColorAdjust=(X=200.000000,Y=100.000000)
+	CollisionRadius=48.000000
+	CollisionHeight=96.000000
+	Mass=200.000000
+}

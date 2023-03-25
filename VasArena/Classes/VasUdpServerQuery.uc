@@ -5,7 +5,7 @@ class VasUdpServerQuery expands UdpServerQuery;
 
 // Return a string of important system information.
 function string GetInfo() {
-	local string ResultSet;
+local string ResultSet;
 
 	// The server name, i.e.: Bob's Server
 	ResultSet = "\\hostname\\"$Level.Game.GameReplicationInfo.ServerName;
@@ -17,7 +17,7 @@ function string GetInfo() {
 	ResultSet = ResultSet$"\\hostport\\"$Level.Game.GetServerPort();
 
 	// (optional) The server IP
-	// if (ServerIP != "")
+	//if (ServerIP != "")
 	//	ResultSet = ResultSet$"\\hostip\\"$ServerIP;
 
 	// The map/level title
@@ -27,7 +27,7 @@ function string GetInfo() {
 	ResultSet = ResultSet$"\\mapname\\"$Left(string(Level), InStr(string(Level), "."));
 
 	// The mod or game type
-	if (GetItemName(string(Level.Game.Class)) == "VasArenaGameInfo")
+	if(GetItemName(string(Level.Game.Class)) == "VasArenaGameInfo")
 	{ResultSet = ResultSet$"\\gametype\\ArenaGameInfo";}
 	else
 	{ResultSet = ResultSet$"\\gametype\\"$GetItemName(string(Level.Game.Class));}
@@ -51,4 +51,8 @@ function string GetInfo() {
 	ResultSet = ResultSet$Level.Game.GetInfo();
 
 	return ResultSet;
+}
+
+defaultproperties
+{
 }

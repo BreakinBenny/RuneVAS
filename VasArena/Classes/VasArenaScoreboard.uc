@@ -1,13 +1,8 @@
 //-----------------------------------------------------------
-//
-//	VasArena - Kal Corp
-//
-//
-//	Http://VasServer.dyndns.org/Kalsforums
-//
+// VasArena - Kal Corp
+// http://VasServer.dyndns.org/Kalsforums
 //-----------------------------------------------------------
 class VasArenaScoreboard expands ArenaScoreboard;
-
 
 var localized string ChampionString;
 var localized string CurrentMatch;
@@ -22,10 +17,10 @@ var localized string MatchText;
 
 function DrawTableHeadings(canvas Canvas)
 {
-	local float XL, YL;
-	local float YOffset;
-	local float recordString;
-	local string CurMatchString;
+local float XL, YL;
+local float YOffset;
+local float recordString;
+local string CurMatchString;
 
 	YOffset = Canvas.CurY;
 
@@ -51,9 +46,9 @@ function DrawTableHeadings(canvas Canvas)
 
 	if(Canvas.ClipX > 512)
 	{
-	// Ping
-	Canvas.SetPos(Canvas.ClipX*0.7, YOffset);
-	Canvas.DrawText(PingText, false);
+		// Ping
+		Canvas.SetPos(Canvas.ClipX*0.7, YOffset);
+		Canvas.DrawText(PingText, false);
 	}
 
 	// Draw seperator
@@ -68,11 +63,11 @@ function DrawTableHeadings(canvas Canvas)
 
 function DrawPlayerInfo( canvas Canvas, PlayerReplicationInfo PRI, float XOffset, float YOffset)
 {
-	local bool bLocalPlayer;
-	local PlayerPawn PlayerOwner;
-	local float XL,YL;
-	local ArenaGameReplicationInfo GRI;
-	local int i;
+local bool bLocalPlayer;
+local PlayerPawn PlayerOwner;
+local float XL,YL;
+local ArenaGameReplicationInfo GRI;
+local int i;
 
 	PlayerOwner = PlayerPawn(Owner);
 	bLocalPlayer = (PRI.PlayerName == PlayerOwner.PlayerReplicationInfo.PlayerName);
@@ -101,7 +96,7 @@ function DrawPlayerInfo( canvas Canvas, PlayerReplicationInfo PRI, float XOffset
 	}
 
 	// Draw Name
-	if(PRI.bAdmin)
+	if (PRI.bAdmin)
 	{
 		if(MyFonts != None)
 			Canvas.Font = MyFonts.GetStaticSmallFont();
@@ -146,7 +141,7 @@ function DrawPlayerInfo( canvas Canvas, PlayerReplicationInfo PRI, float XOffset
 	}
 }
 
-function ShowScores( canvas Canvas )
+function ShowScores(canvas Canvas)
 {
 	local PlayerReplicationInfo PRI;
 	local PlayerReplicationInfo ChampionPRI, ChallengerPRI;
@@ -185,6 +180,7 @@ function ShowScores( canvas Canvas )
 	Canvas.StrLen("TEST", XL, YL);
 
 	// Header
+
 	ArenaGRI = ArenaGameReplicationInfo(PlayerPawn(Owner).GameReplicationInfo);
 	DrawHeader(Canvas);
 	DrawArenaChampion(Canvas, Ordered[0], 0, Canvas.CurY + YL);
@@ -211,7 +207,7 @@ function ShowScores( canvas Canvas )
 
 		}
 	}
-
+		
 	DrawTableHeadings(Canvas);
 
 	Canvas.StrLen("TEST", XL, YL);
@@ -221,7 +217,7 @@ function ShowScores( canvas Canvas )
 
 	if(PlayerCount < 15)
 		YL *= 2;
-	else if(PlayerCount < 20)
+	else if (PlayerCount < 20)
 		YL *= 1.5;
 	if(PlayerCount > 15)
 		PlayerCount = FMin(PlayerCount, (Canvas.ClipY - YStart)/YL - 1);
@@ -231,7 +227,7 @@ function ShowScores( canvas Canvas )
 	//YStart += YL;
 	YOffset = YStart;
 
-	for(I=0; I < PlayerCount; I++)
+	for(I=0; I<PlayerCount; I++)
 	{
 		YOffset = YStart + I*YL;
 		DrawPlayerInfo(Canvas, Ordered[I], 0, YOffset);
@@ -254,4 +250,9 @@ function ShowScores( canvas Canvas )
 	Canvas.SetPos(0,Canvas.ClipY-100);
 	Canvas.DrawText("VasArena Development Forum @ Http://VasServer.dyndns.org/KalsForums");
 	Canvas.bCenter = false;
+}
+
+defaultproperties
+{
+	DeathsText="Life Victories"
 }
