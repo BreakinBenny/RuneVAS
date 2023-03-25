@@ -1,7 +1,7 @@
 //=============================================================================
 // playershroomman.
 //=============================================================================
-class playershroomman expands Ragnar;
+class playershroomman expands PlayerBerserker;
 
 defaultproperties{
 	DrawScale=1.12
