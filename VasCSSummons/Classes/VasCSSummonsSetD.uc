@@ -1,0 +1,1 @@
+class VasCSSummonsSetD expands VasCSSummons Config (VasCSSummon);
