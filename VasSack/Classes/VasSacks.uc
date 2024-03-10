@@ -27,101 +27,99 @@ var() config int GPercent[20];
 
 
 function Destroyed(){
-local int randnumber;
-local Inventory Inventory;
-local class<Inventory> LoadInventory;
-local vector X,Y,Z;
-local vector newLocation;
-local int Tempint,I;
+	local int randnumber;
+	local Inventory Inventory;
+	local class<Inventory> LoadInventory;
+	local vector X,Y,Z;
+	local vector newLocation;
+	local int Tempint,I;
 
-VasDebug(" Destroyed Started ",2);
+	VasDebug(" Destroyed Started ",2);
 
 	if(bDestroyable){
 		SpawnDebris();
 		PlayDestroyedSound();
 	}
-Tempint = Rand(100);
-VasDebug (" Destroyed Tempint="$Tempint$" GroupApercent="$GroupApercent,3);
-if((Tempint <= GroupApercent) && (GroupApercent > 0))
-{
-	for(i=0; i<19; i++){
-		if(APercent[i] > 0)
-		{
-			Tempint = Rand(100);
-			if(Tempint <= APercent[i]){
-				VasDebug (" Destroyed Load A Item="$A[i],3);
-				LoadInventory = class<Inventory>(DynamicLoadObject(A[i], class'Class'));
-				if(LoadInventory != none)
-					Spawnsackshit(LoadInventory, False);
-				else
-					VasDebug(" Destroyed LoadInventory = None A Item="$A[i],1);
+	Tempint = Rand(100);
+	VasDebug (" Destroyed Tempint="$Tempint$" GroupApercent="$GroupApercent,3);
+	if((Tempint <= GroupApercent) && (GroupApercent > 0)){
+		for(i=0; i<19; i++){
+			if(APercent[i] > 0){
+				Tempint = Rand(100);
+				if(Tempint <= APercent[i]){
+					VasDebug (" Destroyed Load A Item="$A[i],3);
+					LoadInventory = class<Inventory>(DynamicLoadObject(A[i], class'Class'));
+					if(LoadInventory != None)
+						Spawnsackshit(LoadInventory, False);
+					else
+						VasDebug(" Destroyed LoadInventory = None A Item="$A[i],1);
+				}
 			}
 		}
 	}
-}
-Tempint = Rand(100);
-if((Tempint <= GroupBpercent) && (GroupBpercent > 0)){
-	for(i=0; i<19; i++){
-		if(BPercent[i] > 0){
-			Tempint = Rand(100);
-			if(Tempint <= BPercent[i]){
-				VasDebug (" Destroyed Load B Item="$b[i],3);
-				LoadInventory = class<Inventory>( DynamicLoadObject(B[i], class'Class' ));
-				if(LoadInventory != none)
-					Spawnsackshit(LoadInventory, False);
-				else
-					VasDebug(" Destroyed LoadInventory = None B Item="$b[i],1);
+	Tempint = Rand(100);
+	if((Tempint <= GroupBpercent) && (GroupBpercent > 0)){
+		for(i=0; i<19; i++){
+			if(BPercent[i] > 0){
+				Tempint = Rand(100);
+				if(Tempint <= BPercent[i]){
+					VasDebug (" Destroyed Load B Item="$b[i],3);
+					LoadInventory = class<Inventory>( DynamicLoadObject(B[i], class'Class' ));
+					if(LoadInventory != none)
+						Spawnsackshit(LoadInventory, False);
+					else
+						VasDebug(" Destroyed LoadInventory = None B Item="$b[i],1);
+				}
 			}
 		}
 	}
-}
 
-Tempint = Rand(100);
-if((Tempint <= GroupCpercent) && (GroupCpercent > 0)){
-	for(i=0; i<19; i++){
-		if(CPercent[i] > 0){
-			Tempint = Rand(100);
-			if(Tempint <= CPercent[i]){
-				VasDebug(" Destroyed Load C Item="$c[i],3);
-				LoadInventory = class<Inventory>( DynamicLoadObject(C[i], class'Class' ));
-				if(LoadInventory != none)
-					Spawnsackshit(LoadInventory, False);
-				else
-					VasDebug(" Destroyed LoadInventory = None C Item="$b[i],1);
+	Tempint = Rand(100);
+	if((Tempint <= GroupCpercent) && (GroupCpercent > 0)){
+		for(i=0; i<19; i++){
+			if(CPercent[i] > 0){
+				Tempint = Rand(100);
+				if(Tempint <= CPercent[i]){
+					VasDebug(" Destroyed Load C Item="$c[i],3);
+					LoadInventory = class<Inventory>( DynamicLoadObject(C[i], class'Class' ));
+					if(LoadInventory != none)
+						Spawnsackshit(LoadInventory, False);
+					else
+						VasDebug(" Destroyed LoadInventory = None C Item="$b[i],1);
+				}
 			}
 		}
 	}
-}
 
-Tempint = Rand(100);
-if((Tempint <= Groupdpercent) && (Groupdpercent > 0)){
-	Tempint =0;
-	for(i=0; i<19; i++){
-		if((DPercent[i] > 0) && (d[i] != ""))
-			Tempint +=1;
-	}
+	Tempint = Rand(100);
+	if((Tempint <= Groupdpercent) && (Groupdpercent > 0)){
+		Tempint =0;
+		for(i=0; i<19; i++){
+			if((DPercent[i] > 0) && (d[i] != ""))
+				Tempint +=1;
+		}
 	switch(Rand(Tempint)){
-		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(d[0], class'Class' ));	break;
-		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(d[1], class'Class' ));	break;
-		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(d[2], class'Class' ));	break;
-		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(d[3], class'Class' ));	break;
-		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(d[4], class'Class' ));	break;
-		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(d[5], class'Class' ));	break;
-		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(d[6], class'Class' ));	break;
-		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(d[7], class'Class' ));	break;
-		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(d[8], class'Class' ));	break;
-		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(d[9], class'Class' ));	break;
-		case 10:	loadInventory = class<Inventory>( DynamicLoadObject(d[10], class'Class' ));	break;
-		case 11:	loadInventory = class<Inventory>( DynamicLoadObject(d[11], class'Class' ));	break;
-		case 12:	loadInventory = class<Inventory>( DynamicLoadObject(d[12], class'Class' ));	break;
-		case 13:	loadInventory = class<Inventory>( DynamicLoadObject(d[13], class'Class' ));	break;
-		case 14:	loadInventory = class<Inventory>( DynamicLoadObject(d[14], class'Class' ));	break;
-		case 15:	loadInventory = class<Inventory>( DynamicLoadObject(d[15], class'Class' ));	break;
-		case 16:	loadInventory = class<Inventory>( DynamicLoadObject(d[16], class'Class' ));	break;
-		case 17:	loadInventory = class<Inventory>( DynamicLoadObject(d[17], class'Class' ));	break;
-		case 18:	loadInventory = class<Inventory>( DynamicLoadObject(d[18], class'Class' ));	break;
-		case 19:	loadInventory = class<Inventory>( DynamicLoadObject(d[19], class'Class' ));	break;
-		case 20:	loadInventory = class<Inventory>( DynamicLoadObject(d[20], class'Class' ));	break;
+		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(d[0], class'Class' )); break;
+		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(d[1], class'Class' )); break;
+		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(d[2], class'Class' )); break;
+		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(d[3], class'Class' )); break;
+		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(d[4], class'Class' )); break;
+		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(d[5], class'Class' )); break;
+		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(d[6], class'Class' )); break;
+		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(d[7], class'Class' )); break;
+		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(d[8], class'Class' )); break;
+		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(d[9], class'Class' )); break;
+		case 10: loadInventory = class<Inventory>( DynamicLoadObject(d[10], class'Class' )); break;
+		case 11: loadInventory = class<Inventory>( DynamicLoadObject(d[11], class'Class' )); break;
+		case 12: loadInventory = class<Inventory>( DynamicLoadObject(d[12], class'Class' )); break;
+		case 13: loadInventory = class<Inventory>( DynamicLoadObject(d[13], class'Class' )); break;
+		case 14: loadInventory = class<Inventory>( DynamicLoadObject(d[14], class'Class' )); break;
+		case 15: loadInventory = class<Inventory>( DynamicLoadObject(d[15], class'Class' )); break;
+		case 16: loadInventory = class<Inventory>( DynamicLoadObject(d[16], class'Class' )); break;
+		case 17: loadInventory = class<Inventory>( DynamicLoadObject(d[17], class'Class' )); break;
+		case 18: loadInventory = class<Inventory>( DynamicLoadObject(d[18], class'Class' )); break;
+		case 19: loadInventory = class<Inventory>( DynamicLoadObject(d[19], class'Class' )); break;
+		case 20: loadInventory = class<Inventory>( DynamicLoadObject(d[20], class'Class' )); break;
 	}
 	if(LoadInventory != none)
 		Spawnsackshit(LoadInventory, TRUE);
@@ -136,29 +134,28 @@ if((Tempint <= GroupEpercent) && (GroupEpercent > 0)){
 		if((EPercent[i] > 0) && (e[i] != ""))
 			Tempint +=1;
 	}
-	switch(Rand(Tempint))
-	{
-		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(e[0], class'Class' ));	break;
-		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(e[1], class'Class' ));	break;
-		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(e[2], class'Class' ));	break;
-		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(e[3], class'Class' ));	break;
-		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(e[4], class'Class' ));	break;
-		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(e[5], class'Class' ));	break;
-		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(e[6], class'Class' ));	break;
-		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(e[7], class'Class' ));	break;
-		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(e[8], class'Class' ));	break;
-		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(e[9], class'Class' ));	break;
-		case 10:	loadInventory = class<Inventory>( DynamicLoadObject(e[10], class'Class' ));	break;
-		case 11:	loadInventory = class<Inventory>( DynamicLoadObject(e[11], class'Class' ));	break;
-		case 12:	loadInventory = class<Inventory>( DynamicLoadObject(e[12], class'Class' ));	break;
-		case 13:	loadInventory = class<Inventory>( DynamicLoadObject(e[13], class'Class' ));	break;
-		case 14:	loadInventory = class<Inventory>( DynamicLoadObject(e[14], class'Class' ));	break;
-		case 15:	loadInventory = class<Inventory>( DynamicLoadObject(e[15], class'Class' ));	break;
-		case 16:	loadInventory = class<Inventory>( DynamicLoadObject(e[16], class'Class' ));	break;
-		case 17:	loadInventory = class<Inventory>( DynamicLoadObject(e[17], class'Class' ));	break;
-		case 18:	loadInventory = class<Inventory>( DynamicLoadObject(e[18], class'Class' ));	break;
-		case 19:	loadInventory = class<Inventory>( DynamicLoadObject(e[19], class'Class' ));	break;
-		case 20:	loadInventory = class<Inventory>( DynamicLoadObject(e[20], class'Class' ));	break;
+	switch(Rand(Tempint)){
+		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(e[0], class'Class' )); break;
+		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(e[1], class'Class' )); break;
+		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(e[2], class'Class' )); break;
+		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(e[3], class'Class' )); break;
+		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(e[4], class'Class' )); break;
+		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(e[5], class'Class' )); break;
+		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(e[6], class'Class' )); break;
+		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(e[7], class'Class' )); break;
+		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(e[8], class'Class' )); break;
+		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(e[9], class'Class' )); break;
+		case 10: loadInventory = class<Inventory>( DynamicLoadObject(e[10], class'Class' )); break;
+		case 11: loadInventory = class<Inventory>( DynamicLoadObject(e[11], class'Class' )); break;
+		case 12: loadInventory = class<Inventory>( DynamicLoadObject(e[12], class'Class' )); break;
+		case 13: loadInventory = class<Inventory>( DynamicLoadObject(e[13], class'Class' )); break;
+		case 14: loadInventory = class<Inventory>( DynamicLoadObject(e[14], class'Class' )); break;
+		case 15: loadInventory = class<Inventory>( DynamicLoadObject(e[15], class'Class' )); break;
+		case 16: loadInventory = class<Inventory>( DynamicLoadObject(e[16], class'Class' )); break;
+		case 17: loadInventory = class<Inventory>( DynamicLoadObject(e[17], class'Class' )); break;
+		case 18: loadInventory = class<Inventory>( DynamicLoadObject(e[18], class'Class' )); break;
+		case 19: loadInventory = class<Inventory>( DynamicLoadObject(e[19], class'Class' )); break;
+		case 20: loadInventory = class<Inventory>( DynamicLoadObject(e[20], class'Class' )); break;
 	}
 	if(LoadInventory != none)
 		Spawnsackshit(LoadInventory, TRUE);
@@ -174,27 +171,27 @@ if((Tempint <= GroupFpercent) && (GroupFpercent > 0)){
 		Tempint +=1;
 	}
 	switch(Rand(Tempint)){
-		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(f[0], class'Class' ));	break;
-		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(f[1], class'Class' ));	break;
-		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(f[2], class'Class' ));	break;
-		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(f[3], class'Class' ));	break;
-		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(f[4], class'Class' ));	break;
-		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(f[5], class'Class' ));	break;
-		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(f[6], class'Class' ));	break;
-		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(f[7], class'Class' ));	break;
-		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(f[8], class'Class' ));	break;
-		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(f[9], class'Class' ));	break;
-		case 10:	loadInventory = class<Inventory>( DynamicLoadObject(f[10], class'Class' ));	break;
-		case 11:	loadInventory = class<Inventory>( DynamicLoadObject(f[11], class'Class' ));	break;
-		case 12:	loadInventory = class<Inventory>( DynamicLoadObject(f[12], class'Class' ));	break;
-		case 13:	loadInventory = class<Inventory>( DynamicLoadObject(f[13], class'Class' ));	break;
-		case 14:	loadInventory = class<Inventory>( DynamicLoadObject(f[14], class'Class' ));	break;
-		case 15:	loadInventory = class<Inventory>( DynamicLoadObject(f[15], class'Class' ));	break;
-		case 16:	loadInventory = class<Inventory>( DynamicLoadObject(f[16], class'Class' ));	break;
-		case 17:	loadInventory = class<Inventory>( DynamicLoadObject(f[17], class'Class' ));	break;
-		case 18:	loadInventory = class<Inventory>( DynamicLoadObject(f[18], class'Class' ));	break;
-		case 19:	loadInventory = class<Inventory>( DynamicLoadObject(f[19], class'Class' ));	break;
-		case 20:	loadInventory = class<Inventory>( DynamicLoadObject(f[20], class'Class' ));	break;
+		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(f[0], class'Class' )); break;
+		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(f[1], class'Class' )); break;
+		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(f[2], class'Class' )); break;
+		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(f[3], class'Class' )); break;
+		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(f[4], class'Class' )); break;
+		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(f[5], class'Class' )); break;
+		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(f[6], class'Class' )); break;
+		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(f[7], class'Class' )); break;
+		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(f[8], class'Class' )); break;
+		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(f[9], class'Class' )); break;
+		case 10: loadInventory = class<Inventory>( DynamicLoadObject(f[10], class'Class' )); break;
+		case 11: loadInventory = class<Inventory>( DynamicLoadObject(f[11], class'Class' )); break;
+		case 12: loadInventory = class<Inventory>( DynamicLoadObject(f[12], class'Class' )); break;
+		case 13: loadInventory = class<Inventory>( DynamicLoadObject(f[13], class'Class' )); break;
+		case 14: loadInventory = class<Inventory>( DynamicLoadObject(f[14], class'Class' )); break;
+		case 15: loadInventory = class<Inventory>( DynamicLoadObject(f[15], class'Class' )); break;
+		case 16: loadInventory = class<Inventory>( DynamicLoadObject(f[16], class'Class' )); break;
+		case 17: loadInventory = class<Inventory>( DynamicLoadObject(f[17], class'Class' )); break;
+		case 18: loadInventory = class<Inventory>( DynamicLoadObject(f[18], class'Class' )); break;
+		case 19: loadInventory = class<Inventory>( DynamicLoadObject(f[19], class'Class' )); break;
+		case 20: loadInventory = class<Inventory>( DynamicLoadObject(f[20], class'Class' )); break;
 	}
 	if(LoadInventory != none)
 		Spawnsackshit(LoadInventory, TRUE);
@@ -211,27 +208,27 @@ Tempint =0;
 	}
 	switch(Rand(Tempint))
 	{
-		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(G[0], class'Class' ));	break;
-		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(G[1], class'Class' ));	break;
-		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(G[2], class'Class' ));	break;
-		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(G[3], class'Class' ));	break;
-		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(G[4], class'Class' ));	break;
-		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(G[5], class'Class' ));	break;
-		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(G[6], class'Class' ));	break;
-		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(G[7], class'Class' ));	break;
-		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(G[8], class'Class' ));	break;
-		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(G[9], class'Class' ));	break;
-		case 10:	loadInventory = class<Inventory>( DynamicLoadObject(G[10], class'Class' ));	break;
-		case 11:	loadInventory = class<Inventory>( DynamicLoadObject(G[11], class'Class' ));	break;
-		case 12:	loadInventory = class<Inventory>( DynamicLoadObject(G[12], class'Class' ));	break;
-		case 13:	loadInventory = class<Inventory>( DynamicLoadObject(G[13], class'Class' ));	break;
-		case 14:	loadInventory = class<Inventory>( DynamicLoadObject(G[14], class'Class' ));	break;
-		case 15:	loadInventory = class<Inventory>( DynamicLoadObject(G[15], class'Class' ));	break;
-		case 16:	loadInventory = class<Inventory>( DynamicLoadObject(G[16], class'Class' ));	break;
-		case 17:	loadInventory = class<Inventory>( DynamicLoadObject(G[17], class'Class' ));	break;
-		case 18:	loadInventory = class<Inventory>( DynamicLoadObject(G[18], class'Class' ));	break;
-		case 19:	loadInventory = class<Inventory>( DynamicLoadObject(G[19], class'Class' ));	break;
-		case 20:	loadInventory = class<Inventory>( DynamicLoadObject(G[20], class'Class' ));	break;
+		case 0:	loadInventory = class<Inventory>( DynamicLoadObject(G[0], class'Class' )); break;
+		case 1:	loadInventory = class<Inventory>( DynamicLoadObject(G[1], class'Class' )); break;
+		case 2:	loadInventory = class<Inventory>( DynamicLoadObject(G[2], class'Class' )); break;
+		case 3:	loadInventory = class<Inventory>( DynamicLoadObject(G[3], class'Class' )); break;
+		case 4:	loadInventory = class<Inventory>( DynamicLoadObject(G[4], class'Class' )); break;
+		case 5:	loadInventory = class<Inventory>( DynamicLoadObject(G[5], class'Class' )); break;
+		case 6:	loadInventory = class<Inventory>( DynamicLoadObject(G[6], class'Class' )); break;
+		case 7:	loadInventory = class<Inventory>( DynamicLoadObject(G[7], class'Class' )); break;
+		case 8:	loadInventory = class<Inventory>( DynamicLoadObject(G[8], class'Class' )); break;
+		case 9:	loadInventory = class<Inventory>( DynamicLoadObject(G[9], class'Class' )); break;
+		case 10: loadInventory = class<Inventory>( DynamicLoadObject(G[10], class'Class' )); break;
+		case 11: loadInventory = class<Inventory>( DynamicLoadObject(G[11], class'Class' )); break;
+		case 12: loadInventory = class<Inventory>( DynamicLoadObject(G[12], class'Class' )); break;
+		case 13: loadInventory = class<Inventory>( DynamicLoadObject(G[13], class'Class' )); break;
+		case 14: loadInventory = class<Inventory>( DynamicLoadObject(G[14], class'Class' )); break;
+		case 15: loadInventory = class<Inventory>( DynamicLoadObject(G[15], class'Class' )); break;
+		case 16: loadInventory = class<Inventory>( DynamicLoadObject(G[16], class'Class' )); break;
+		case 17: loadInventory = class<Inventory>( DynamicLoadObject(G[17], class'Class' )); break;
+		case 18: loadInventory = class<Inventory>( DynamicLoadObject(G[18], class'Class' )); break;
+		case 19: loadInventory = class<Inventory>( DynamicLoadObject(G[19], class'Class' )); break;
+		case 20: loadInventory = class<Inventory>( DynamicLoadObject(G[20], class'Class' )); break;
 	}
 	Spawnsackshit(LoadInventory, True);
 }
@@ -261,7 +258,7 @@ VasDebug(" Destroyed Started ", 2);
 	newLocation.y += FRand()*CollisionRadius*2 - CollisionRadius;
 	newLocation.z += FRand()*CollisionHeight*2 - CollisionHeight;
 	Inventory.SetLocation(newLocation);
-	if(Inventory.IsA('weapon')){
+	if(Inventory.IsA('weapon')) || (Inventory.IsA('Shield'){
 		weapon(Inventory).RunePowerRequired = 1024;
 		//Inventory.RemoteRole = ROLE_DumbProxy;
 		Inventory.SetPhysics(PHYS_Falling);
@@ -281,19 +278,19 @@ function EMatterType MatterForJoint(int joint){
 }
 
 function VasDebug(String Text, int level){
-Local String text1,test2;
+	Local String text1,test2;
 
-if(VasDebuglevel > 0){
-	if(level <= VasDebuglevel){
-	if(level == 1)
-		text1 = "* VasDebug L1 * ";
-	if(level == 2)
-		text1 = "** VasDebug L2 ** ";
-	if(level == 3)
-		text1 = "*** VasDebug L3 *** ";
-	Log (text1$" "$Class.name$" - "$Text);
+	if(VasDebuglevel > 0){
+		if(level <= VasDebuglevel){
+			if(level == 1)
+				text1 = "* VasDebug L1 * ";
+			if(level == 2)
+				text1 = "** VasDebug L2 ** ";
+			if(level == 3)
+				text1 = "*** VasDebug L3 *** ";
+			Log (text1$" "$Class.name$" - "$Text);
+		}
 	}
-}
 }
 
 defaultproperties{
@@ -305,8 +302,8 @@ defaultproperties{
 	A(1)="VasSack.vasLegOMeat"
 	A(2)="VasSack.VasHealthFruit"
 	A(3)="VasGveCrossBow.VW2GVECrossBow"
-	A(4)="runei.torch"
-	A(5)="runei.Heltorch"
+	A(4)="RuneI.Torch"
+	A(5)="RuneI.HelTorch"
 	APercent(0)=5
 	APercent(1)=5
 	APercent(2)=5
@@ -314,13 +311,13 @@ defaultproperties{
 	APercent(4)=2
 	APercent(5)=3
 	B(14)="V"
-	E(0)="VasShieldS2.VasShieldsDarkShield"
-	E(1)="VasShieldS2.VasShieldsDwarfBattleShield"
-	E(2)="VasShieldS2.VasShieldsDwarfWoodShield"
-	E(3)="VasShieldS2.VasShieldsGoblinShield"
-	E(4)="VasShieldS2.VasShieldsVikingShield"
-	E(5)="VasShieldS2.VasShieldsVikingShield2"
-	E(6)="VasShieldS2.VasShieldsWaterloggedShield"
+	E(0)="VasShields2.VasShieldsDarkShield"
+	E(1)="VasShields2.VasShieldsDwarfBattleShield"
+	E(2)="VasShields2.VasShieldsDwarfWoodShield"
+	E(3)="VasShields2.VasShieldsGoblinShield"
+	E(4)="VasShields2.VasShieldsVikingShield"
+	E(5)="VasShields2.VasShieldsVikingShield2"
+	E(6)="VasShields2.VasShieldsWaterloggedShield"
 	EPercent(0)=1
 	EPercent(1)=1
 	EPercent(2)=1
